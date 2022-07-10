@@ -1,0 +1,33 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "hlin97@outlook.com",
+                "Name": "Harvey Lin"
+            }
+        ],
+        "Category": "Data and Time",
+        "Description": "Digital Clock widget slightly modified to be more cultured",
+        "FormFactors": [
+            "tablet",
+            "handset",
+            "desktop"
+        ],
+        "Icon": "preferences-system-time",
+        "Id": "harvlin.culturedclock",
+        "License": "GPL-2.0+",
+        "Name": "Cultured Clock",
+        "ServiceTypes": [
+            "Plasma/Applet"
+        ],
+        "Version": "3.0",
+        "Website": "https://kde.org/plasma-desktop"
+    },
+    "X-KDE-ParentApp": "org.kde.plasmashell",
+    "X-Plasma-API": "declarativeappletscript",
+    "X-Plasma-MainScript": "ui/main.qml",
+    "X-Plasma-Provides": [
+        "org.kde.plasma.time",
+        "org.kde.plasma.date"
+    ]
+}
