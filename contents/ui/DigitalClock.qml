@@ -37,6 +37,7 @@ Item {
     property string lastSelectedTimezone: Plasmoid.configuration.lastSelectedTimezone
     property int displayTimezoneFormat: Plasmoid.configuration.displayTimezoneFormat
     property int use24hFormat: Plasmoid.configuration.use24hFormat
+    property int characterSet: Plasmoid.configuration.characterSet
 
     property string lastDate: ""
     property int tzOffset
@@ -73,6 +74,7 @@ Item {
     onShowLocalTimezoneChanged:    { timeFormatCorrection(Qt.locale().timeFormat(Locale.ShortFormat)) }
     onShowDateChanged:             { timeFormatCorrection(Qt.locale().timeFormat(Locale.ShortFormat)) }
     onUse24hFormatChanged:         { timeFormatCorrection(Qt.locale().timeFormat(Locale.ShortFormat)) }
+    onCharacterSetChanged:         { timeFormatCorrection(Qt.locale().timeFormat(Locale.ShortFormat)) }
 
     Connections {
         target: Plasmoid.self
@@ -106,7 +108,11 @@ Item {
             case '1':
                 return '壹';
             case '2':
-                return '弐';
+                if (characterSet == 0) {
+                    return '贰';
+                } else if (characterSet == 1) {
+                    return '弐';
+                }
             case '3':
                 return '参';
             case '4':
@@ -114,9 +120,18 @@ Item {
             case '5':
                 return '伍';
             case '6':
-                return '陸';
+                if (characterSet == 0) {
+                    return '陆';
+                } else if (characterSet == 1) {
+                    return '陸';
+                }
+                
             case '7':
-                return '漆';
+                if (characterSet == 0) {
+                    return '柒';
+                } else if (characterSet == 1) {
+                    return '漆';
+                }
             case '8':
                 return '捌';
             case '9':

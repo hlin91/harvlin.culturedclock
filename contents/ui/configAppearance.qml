@@ -34,6 +34,7 @@ QtLayouts.ColumnLayout {
     property alias cfg_customDateFormat: customDateFormat.text
     property alias cfg_use24hFormat: use24hFormat.currentIndex
     property alias cfg_dateDisplayFormat: dateDisplayFormat.currentIndex
+    property alias cfg_characterSet: characterSet.currentIndex
 
     onCfg_fontFamilyChanged: {
         // HACK by the time we populate our model and/or the ComboBox is finished the value is still undefined
@@ -84,6 +85,16 @@ QtLayouts.ColumnLayout {
                 ]
                 onActivated: cfg_dateDisplayFormat = currentIndex
             }
+        }
+
+        QtControls.ComboBox {
+            Kirigami.FormData.label: i18n("Han Character Set:")
+            id: characterSet
+            model: [
+                i18n("Chinese"),
+                i18n("Jap"),
+            ]
+            onActivated: cfg_characterSet = currentIndex
         }
 
         QtControls.CheckBox {

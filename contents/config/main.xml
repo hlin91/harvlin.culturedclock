@@ -91,5 +91,12 @@
       </choices>
       <default>Adaptive</default>
     </entry>
+    <entry name="characterSet" type="Enum">
+      <label>Switch between different sets of Han characters</label>
+      <choices name="Settings::dateDisplayFormat">
+        <choice name="Chinese" />
+        <choice name="Jap" />
+      </choices>
+    </entry>
   </group>
 </kcfg>
